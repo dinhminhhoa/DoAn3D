@@ -1,13 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.InteropServices;
-using System.Runtime.Serialization.Formatters;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class CharacterLocomotion : MonoBehaviour
 {
-  
     public Animator rigController;
+    public Volume postProcessVolume;
+
+    private Animator animator;
+    private CharacterController characterController;
+    private ActiveWeapon activeWeapon;
+    private WeaponReload reloadWeapon;
+    private CharacterAiming characterAiming;
+    private Vector2 userInput;
+    private Vector3 rootMotion;
+    private Vector3 velocity;
     private float jumpHeight;
     private float gravity;
     private float stepDown;
@@ -15,20 +24,9 @@ public class CharacterLocomotion : MonoBehaviour
     private float jumpDamp;
     private float groundSpeed;
     private float pushPower;
-
-    private Animator animator;
-    private CharacterController characterController;
-    private ActiveWeapon activeWeapon;
-    private WeaponReload reloadWeapon;
-    private CharacterAiming characterAiming;
-
-
-    private Vector2 userInput;
-    private Vector3 rootMotion;
-    private Vector3 velocity;
     private bool isJumping;
-
     private int isSprintingParam = Animator.StringToHash("IsSprinting");
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -36,19 +34,18 @@ public class CharacterLocomotion : MonoBehaviour
         activeWeapon = GetComponent<ActiveWeapon>();
         reloadWeapon = GetComponent<WeaponReload>();
         characterAiming = GetComponent<CharacterAiming>();
-        if(DataManager.HasInstance)
+        if (DataManager.HasInstance)
         {
             jumpHeight = DataManager.Instance.GlobalConfig.jumpHeight;
             gravity = DataManager.Instance.GlobalConfig.gravity;
             stepDown = DataManager.Instance.GlobalConfig.stepDown;
             airControl = DataManager.Instance.GlobalConfig.airControl;
-            jumpDamp =DataManager.Instance.GlobalConfig.jumpDamp;
+            jumpDamp = DataManager.Instance.GlobalConfig.jumpDamp;
             groundSpeed = DataManager.Instance.GlobalConfig.groundSpeed;
             pushPower = DataManager.Instance.GlobalConfig.pushPower;
         }
     }
 
-    
     void Update()
     {
         userInput.x = Input.GetAxis("Horizontal");
@@ -59,7 +56,7 @@ public class CharacterLocomotion : MonoBehaviour
 
         UpdateIsSprinting();
 
-        if(Input.GetKeyDown(KeyCode.Space)) 
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             Jump();
         }
@@ -67,11 +64,10 @@ public class CharacterLocomotion : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(isJumping) 
+        if (isJumping)
         {
             UpdateInAir();
         }
-
         else
         {
             UpdateOnGround();
@@ -85,7 +81,6 @@ public class CharacterLocomotion : MonoBehaviour
         bool isReloading = reloadWeapon.isReloading;
         bool isChangingWeapon = activeWeapon.isChangingWeapon;
         bool isAiming = characterAiming.isAiming;
-
         return isSprinting && !isFiring && !isReloading && !isChangingWeapon && !isAiming;
     }
 
@@ -94,6 +89,13 @@ public class CharacterLocomotion : MonoBehaviour
         bool isSprinting = IsSprinting();
         animator.SetBool(isSprintingParam, isSprinting);
         rigController.SetBool(isSprintingParam, isSprinting);
+        //if (userInput.x != 0)
+        //{
+        //    if (postProcessVolume.profile.TryGet(out ChromaticAberration chromaticAberration))
+        //    {
+        //        chromaticAberration.active = isSprinting;
+        //    }
+        //}
     }
 
     private void UpdateOnGround()
@@ -102,7 +104,7 @@ public class CharacterLocomotion : MonoBehaviour
         Vector3 stepDownAmount = Vector3.down * stepDown;
         characterController.Move(stepForwardAmount + stepDownAmount);
         rootMotion = Vector3.zero;
-        if(!characterController.isGrounded) 
+        if (!characterController.isGrounded)
         {
             SetInAir(0);
         }
@@ -126,7 +128,7 @@ public class CharacterLocomotion : MonoBehaviour
 
     private void Jump()
     {
-        if( !isJumping)
+        if (!isJumping)
         {
             float jumpVelocity = Mathf.Sqrt(2 * gravity * jumpHeight);
             SetInAir(jumpVelocity);
@@ -137,7 +139,7 @@ public class CharacterLocomotion : MonoBehaviour
     {
         isJumping = true;
         velocity = animator.velocity * jumpDamp * groundSpeed;
-        velocity.y = jumpHeight;
+        velocity.y = jumpVelocity;
         animator.SetBool("IsJumping", true);
     }
 
@@ -146,26 +148,26 @@ public class CharacterLocomotion : MonoBehaviour
         return ((transform.forward * userInput.y) + (transform.right * userInput.x)) * (airControl / 100);
     }
 
-    //private void OnControllerColliderHit(ControllerColliderHit hit)
-    //{
-    //    Rigidbody body = hit.collier.attachedRigidbody;
+    void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        Rigidbody body = hit.collider.attachedRigidbody;
 
-    //    // no rigidbody
-    //    if (body == null || body.isKinematic)
-    //        return;
-    //    // We dont want to push objects below us
-    //    if (hit.moveDirection.y < -0.3f)
-    //        return;
+        // no rigidbody
+        if (body == null || body.isKinematic)
+            return;
 
-    //    // Calculate push direction from move direction
-    //    // we only push object to the sides never up and down
-    //    Vector3 pushDir = new Vector3(hit.moveDirection.x, 0, hit.moveDirection.z);
+        // We dont want to push objects below us
+        if (hit.moveDirection.y < -0.3f)
+            return;
 
-    //    // if you know how fast your character is trying to move
-    //    // then you can also multiply the push velocity by that
+        // Calculate push direction from move direction,
+        // we only push objects to the sides never up and down
+        Vector3 pushDir = new Vector3(hit.moveDirection.x, 0, hit.moveDirection.z);
 
-    //    // Apply the push 
-    //    body.velocity = pushDir * pushPower;
-    //}
+        // If you know how fast your character is trying to move,
+        // then you can also multiply the push velocity by that.
 
+        // Apply the push
+        body.velocity = pushDir * pushPower;
+    }
 }

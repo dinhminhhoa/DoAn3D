@@ -17,7 +17,7 @@ public class Health : MonoBehaviour
     {
         if (DataManager.HasInstance)
         {
-            maxHealth = DataManager.Instance.GlobalConfig.maxHealth;
+           // maxHealth = DataManager.Instance.GlobalConfig.maxHealth;
             blinkDuration = DataManager.Instance.GlobalConfig.blinkDuration;
             timeDestroyAI = DataManager.Instance.GlobalConfig.timeDestroyAI;
         }

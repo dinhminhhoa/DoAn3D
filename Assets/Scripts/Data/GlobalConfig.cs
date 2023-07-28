@@ -6,13 +6,14 @@ using UnityEngine;
 public class GlobalConfig : ScriptableObject
 {
     [Header("AI")]
-    public float maxTime = 1f;
+    public float maxTime = 0.5f;
     public float maxDistance = 1f;
-    public float maxHealth = 100f;
+    public float aiMaxHealth = 100f;
     public float blinkDuration = 0.1f;
-    public float dieForce = 10f;
+    public float dieForce = 5f;
     public float maxSight = 5f;
-    public float timeDestroyAI = 3f;
+    public float timeDestroyAI = 2f;
+    public float pickupWeaponSpeed = 5f;
 
     [Header("Player")]
     public float jumpHeight = 3f;
@@ -28,5 +29,8 @@ public class GlobalConfig : ScriptableObject
     public float timeDestroyDroppedMagazine = 5f;
     public float maxCroissHairTargetDistance = 100f;
     public int maxBulletPoolSize = 30;
-}
+    public float playerMaxHealth = 100f;
 
+    [Header("UI")]
+    public float loadingOverLapTime = 1f;
+}
