@@ -276,7 +276,7 @@ Transform:
   m_GameObject: {fileID: 1007797905859639379}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
+  m_LocalScale: {x: 0.02, y: 0.02, z: 0.02}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: -4647983144428737639}
@@ -301,6 +301,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78e339222fc47624fa02ff17fadf6741, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  equipWeaponBy: 0
   weaponSlot: 1
   weaponName: 
   isFiring: 0
@@ -314,8 +315,13 @@ MonoBehaviour:
   raycastDestination: {fileID: 0}
   weaponRecoil: {fileID: 0}
   magazine: {fileID: 0}
+  animator: {fileID: 0}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
   ammoCount: 0
   totalAmmo: 0
+  magazineSize: 2
   damage: 10
 --- !u!114 &6554846012269893001
 MonoBehaviour:

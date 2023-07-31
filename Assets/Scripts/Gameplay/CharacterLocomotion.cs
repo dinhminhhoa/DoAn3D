@@ -48,7 +48,7 @@ public class CharacterLocomotion : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(isJumping);
+        
         userInput.x = Input.GetAxis("Horizontal");
         userInput.y = Input.GetAxis("Vertical");
 

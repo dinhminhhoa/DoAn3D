@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RaycastWeapon : MonoBehaviour
 {
+    public EquipWeaponBy equipWeaponBy;
     public WeaponSlot weaponSlot;
     public string weaponName;
     public bool isFiring = false;
@@ -13,14 +14,16 @@ public class RaycastWeapon : MonoBehaviour
     public ParticleSystem[] muzzleFlash;
     public ParticleSystem hitEffect;
     public TrailRenderer tracerEffect;
-
     public Transform raycastOrigin;
     public Transform raycastDestination;
     public WeaponRecoil weaponRecoil;
     public GameObject magazine;
+    public RuntimeAnimatorController animator;
+    public LayerMask layerMask;
 
     public int ammoCount;
     public int totalAmmo;
+    public int magazineSize = 2;
     public float damage = 10f;
 
     private Ray ray;
@@ -58,6 +61,22 @@ public class RaycastWeapon : MonoBehaviour
         accumulatedTime += deltaTime;
 
         UpdateBullets(deltaTime);
+    }
+
+    public bool CanReload()
+    {
+        return ammoCount == 0 && magazineSize > 0;
+    }
+
+    public bool EmptyAmmo()
+    {
+        return ammoCount == 0 && magazineSize == 0;
+    }
+
+    public void RefillAmmo()
+    {
+        ammoCount = totalAmmo;
+        magazineSize--;
     }
 
     private void UpdateFiring(float deltaTime, Vector3 target)
@@ -110,7 +129,7 @@ public class RaycastWeapon : MonoBehaviour
 
         if (ListenerManager.HasInstance)
         {
-            ListenerManager.Instance.BroadCast(ListenType.UPDATE_AMMO, ammoCount);
+            ListenerManager.Instance.BroadCast(ListenType.UPDATE_AMMO, this);
         }
 
         foreach (var item in muzzleFlash)
@@ -139,7 +158,7 @@ public class RaycastWeapon : MonoBehaviour
         float distance = direction.magnitude;
         ray.origin = start;
         ray.direction = direction;
-        if (Physics.Raycast(ray, out hitInfo, distance))
+        if (Physics.Raycast(ray, out hitInfo, distance, layerMask))
         {
             hitEffect.transform.position = hitInfo.point;
             hitEffect.transform.forward = hitInfo.normal;
