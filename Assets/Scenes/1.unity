@@ -8944,7 +8944,7 @@ MonoBehaviour:
   m_IgnoreTimeScale: 0
   m_WorldUpOverride: {fileID: 0}
   m_UpdateMethod: 2
-  m_BlendUpdateMethod: 1
+  m_BlendUpdateMethod: 0
   m_DefaultBlend:
     m_Style: 1
     m_Time: 2
@@ -14201,7 +14201,7 @@ GameObject:
   - component: {fileID: 1485188652}
   - component: {fileID: 1485188654}
   - component: {fileID: 1485188653}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: WeaponPose
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20419,10 +20419,10 @@ MonoBehaviour:
       m_Length: 2
       m_Item0:
         transform: {fileID: 370578311}
-        weight: 0
+        weight: 1
       m_Item1:
         transform: {fileID: 1088351532}
-        weight: 1
+        weight: 0
       m_Item2:
         transform: {fileID: 0}
         weight: 0
