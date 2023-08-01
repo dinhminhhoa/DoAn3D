@@ -192,7 +192,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: -3077091864970346993}
   m_LocalRotation: {x: -0.7071069, y: 0, z: 0, w: 0.7071067}
-  m_LocalPosition: {x: -0, y: 2.1955132, z: 1.8464328}
+  m_LocalPosition: {x: -0, y: 2.1955132, z: 2.041}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -258,6 +258,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5823348556908119089}
+  - component: {fileID: 6921881025758833041}
+  - component: {fileID: 6554846012269893001}
   m_Layer: 0
   m_Name: Glock 3
   m_TagString: Untagged
@@ -287,6 +289,52 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6921881025758833041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1007797905859639379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78e339222fc47624fa02ff17fadf6741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponSlot: 1
+  weaponName: 
+  isFiring: 0
+  fireRate: 25
+  bulletSpeed: 1000
+  bulletDrop: 0
+  muzzleFlash: []
+  hitEffect: {fileID: 0}
+  tracerEffect: {fileID: 0}
+  raycastOrigin: {fileID: 0}
+  raycastDestination: {fileID: 0}
+  weaponRecoil: {fileID: 0}
+  magazine: {fileID: 0}
+  ammoCount: 0
+  totalAmmo: 0
+  damage: 10
+--- !u!114 &6554846012269893001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1007797905859639379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc207f65e448b8f439da5a5d925dc0e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterAiming: {fileID: 0}
+  cameraShake: {fileID: 0}
+  rigController: {fileID: 0}
+  recoilModifier: 1
+  recoilPattern: []
+  duration: 0
 --- !u!1 &3898448457733988785
 GameObject:
   m_ObjectHideFlags: 0
@@ -299,7 +347,7 @@ GameObject:
   - component: {fileID: 7377172007356598652}
   - component: {fileID: 6083970222974058391}
   m_Layer: 0
-  m_Name: "\u041C\u0430\u0433\u0430\u0437\u0438\u043D"
+  m_Name: Magazine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -382,7 +430,7 @@ GameObject:
   - component: {fileID: -8144238709463127703}
   - component: {fileID: -2852029862986046066}
   m_Layer: 0
-  m_Name: "\u041F\u0430\u0442\u043E\u0440\u043D"
+  m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

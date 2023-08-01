@@ -24,7 +24,7 @@ public class CharacterLocomotion : MonoBehaviour
     private float jumpDamp;
     private float groundSpeed;
     private float pushPower;
-    private bool isJumping;
+    private bool isJumping = false;
     private int isSprintingParam = Animator.StringToHash("IsSprinting");
 
     void Start()
@@ -48,6 +48,7 @@ public class CharacterLocomotion : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(isJumping);
         userInput.x = Input.GetAxis("Horizontal");
         userInput.y = Input.GetAxis("Vertical");
 
