@@ -11,7 +11,7 @@ public class CharacterAiming : MonoBehaviour
     public Transform cameraLookAt;
     public AxisState xAxis;
     public AxisState yAxis;
-    public bool isAiming;
+    public bool isAiming ;
 
     private Camera mainCamera;
     private Animator animator;
