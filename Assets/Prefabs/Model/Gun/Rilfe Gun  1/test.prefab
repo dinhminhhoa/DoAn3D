@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2194926013980849829
+--- !u!1 &5267114099241493029
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7956117587545033909}
-  - component: {fileID: -8741514963802381470}
+  - component: {fileID: 5027699691410702621}
+  - component: {fileID: -6976202237495979156}
   m_Layer: 0
   m_Name: test
   m_TagString: Untagged
@@ -17,13 +17,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7956117587545033909
+--- !u!4 &5027699691410702621
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2194926013980849829}
+  m_GameObject: {fileID: 5267114099241493029}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -32,14 +32,14 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!96 &-8741514963802381470
+--- !u!96 &-6976202237495979156
 TrailRenderer:
   serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2194926013980849829}
+  m_GameObject: {fileID: 5267114099241493029}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -74,7 +74,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 1000
+  m_Time: 5
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -95,7 +95,7 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 0, b: 0, a: 1}
+      key0: {r: 1, g: 1, b: 1, a: 1}
       key1: {r: 1, g: 1, b: 1, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
@@ -126,8 +126,8 @@ TrailRenderer:
     numCapVertices: 0
     alignment: 0
     textureMode: 0
-    shadowBias: 1000
+    shadowBias: 0.5
     generateLightingData: 0
-  m_MinVertexDistance: 1000
+  m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 0

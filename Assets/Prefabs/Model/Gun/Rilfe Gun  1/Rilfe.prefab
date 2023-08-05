@@ -20655,13 +20655,13 @@ MonoBehaviour:
   weaponName: rilfe
   isFiring: 0
   fireRate: 5
-  bulletSpeed: 10
-  bulletDrop: 10
+  bulletSpeed: 1000
+  bulletDrop: 0
   muzzleFlash:
   - {fileID: 42855218732861505}
   - {fileID: 8463994471933423835}
   hitEffect: {fileID: 3117305249379917507}
-  tracerEffect: {fileID: -8741514963802381470, guid: 20673a5be69f4d242b075d071c9e9a9b, type: 3}
+  tracerEffect: {fileID: -6976202237495979156, guid: 20673a5be69f4d242b075d071c9e9a9b, type: 3}
   raycastOrigin: {fileID: 5170013470605831771}
   raycastDestination: {fileID: 0}
   weaponRecoil: {fileID: 0}
