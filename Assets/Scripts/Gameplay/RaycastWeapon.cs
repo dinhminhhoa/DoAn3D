@@ -34,11 +34,14 @@ public class RaycastWeapon : MonoBehaviour
     private void Awake()
     {
         weaponRecoil = GetComponent<WeaponRecoil>();
+        
+       
     }
 
     public void StartFiring()
     {
         isFiring = true;
+        
         if (accumulatedTime > 0.0f)
         {
             accumulatedTime = 0.0f;
@@ -135,14 +138,21 @@ public class RaycastWeapon : MonoBehaviour
         foreach (var item in muzzleFlash)
         {
             item.Emit(1);
+            
         }
 
+
+
+
+
         Vector3 velocity = (target - raycastOrigin.position).normalized * bulletSpeed;
+       
 
         var bullet = ObjectPool.Instance.GetPooledObject();
         bullet.Active(raycastOrigin.position, velocity);
 
         weaponRecoil.GenerateRecoil(weaponName);
+
     }
 
     private Vector3 GetPosition(Bullet bullet)
