@@ -10,10 +10,14 @@ public class ObjectPool : BaseManager<ObjectPool>
     void Start()
     {
         pooledObjects= new List<Bullet>();
-        amountToPool = DataManager.Instance.GlobalConfig.maxBulletPoolSize;
+        if (DataManager.HasInstance)
+        {
+            amountToPool = DataManager.Instance.GlobalConfig.maxBulletPoolSize;
+            
+        }
         Bullet tmp;
-         
-        for(int i =0; i < amountToPool; i++) 
+
+        for (int i =0; i < amountToPool; i++) 
         {
             tmp = Instantiate(objectToPool, this.transform, true);
             tmp.Deactive();

@@ -33,4 +33,6 @@ public class GlobalConfig : ScriptableObject
 
     [Header("UI")]
     public float loadingOverLapTime = 1f;
+
+   
 }

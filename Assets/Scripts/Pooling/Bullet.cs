@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class Bullet : MonoBehaviour
 {
@@ -9,9 +8,7 @@ public class Bullet : MonoBehaviour
     public Vector3 initialPosition;
     public Vector3 initialVelocity;
     public TrailRenderer tracer;
-   
-
-
+  
     private bool isActive = false;
     public bool IsActive => isActive;
 

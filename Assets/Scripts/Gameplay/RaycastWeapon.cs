@@ -13,7 +13,7 @@ public class RaycastWeapon : MonoBehaviour
     public float bulletDrop = 0f;
     public ParticleSystem[] muzzleFlash;
     public ParticleSystem hitEffect;
-    public TrailRenderer tracerEffect;
+   
     public Transform raycastOrigin;
     public Transform raycastDestination;
     public WeaponRecoil weaponRecoil;
@@ -149,6 +149,7 @@ public class RaycastWeapon : MonoBehaviour
        
 
         var bullet = ObjectPool.Instance.GetPooledObject();
+
         bullet.Active(raycastOrigin.position, velocity);
 
         weaponRecoil.GenerateRecoil(weaponName);
