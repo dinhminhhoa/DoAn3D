@@ -13,6 +13,7 @@ public class CharacterAiming : MonoBehaviour
     public AxisState yAxis;
     public bool isAiming ;
 
+    private LayerMask layerMask;
     private Camera mainCamera;
     private Animator animator;
     private ActiveWeapon activeWeapon;
@@ -45,6 +46,8 @@ public class CharacterAiming : MonoBehaviour
             {
                 isAiming = Input.GetMouseButton(1);
                 animator.SetBool(isAimingParam, isAiming);
+                
+                
                 weapon.weaponRecoil.recoilModifier = isAiming ? aimRecoil : defaultRecoil;
             }
         }
