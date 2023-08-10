@@ -1,50 +1,50 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+//using System.Collections;
+//using System.Collections.Generic;
+//using UnityEngine;
 
-public class Scope : MonoBehaviour
-{
-    public Animator animator;
-    public GameObject scopeOverlay;
-   
-    public GameObject weaponCamera;
-    
+//public class Scope : MonoBehaviour
+//{
+//    public Animator animator;
+//    public GameObject scopeOverlay;
 
-    private bool isScoped = false;
+//    public GameObject weaponCamera;
 
-    private void Update()
-    {
-        if (Input.GetButtonDown("Fire2")) 
-        {
-            isScoped = !isScoped;
-            animator.SetBool("Scope", isScoped);
 
-            scopeOverlay.SetActive(isScoped);
+//    private bool isScoped = false;
 
-            if (isScoped)
-                StartCoroutine(OnScoped());
-            else
-                OnUnscoped();
+//    private void Update()
+//    {
+//        if (Input.GetButtonDown("Fire2"))
+//        {
+//            isScoped = !isScoped;
+//            animator.SetBool("Scope", isScoped);
 
-        }
-    }
+//            scopeOverlay.SetActive(isScoped);
 
-    void OnUnscoped()
-    {
-        scopeOverlay.SetActive(false);
-        weaponCamera.SetActive(true);
+//            if (isScoped)
+//                StartCoroutine(OnScoped());
+//            else
+//                OnUnscoped();
 
-        
-    }
+//        }
+//    }
 
-    IEnumerator OnScoped()
-    {
-        yield return new WaitForSeconds(0.15f);
+//    public void OnUnscoped()
+//    {
+//        scopeOverlay.SetActive(false);
+//        weaponCamera.SetActive(true);
 
-        scopeOverlay.SetActive(true);
-       weaponCamera.SetActive(false);
 
-       
-    }
+//    }
 
-}
+//    public IEnumerator OnScoped()
+//    {
+//        yield return new WaitForSeconds(0.15f);
+
+//        scopeOverlay.SetActive(true);
+//        weaponCamera.SetActive(false);
+
+
+//    }
+
+//}

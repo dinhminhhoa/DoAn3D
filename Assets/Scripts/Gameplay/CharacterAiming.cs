@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using UnityEditor.Experimental.GraphView;
 
 public class CharacterAiming : MonoBehaviour
 {
@@ -12,12 +13,19 @@ public class CharacterAiming : MonoBehaviour
     public AxisState xAxis;
     public AxisState yAxis;
     public bool isAiming ;
+   // private bool isScoped = false;
 
-    private LayerMask layerMask;
     private Camera mainCamera;
     private Animator animator;
     private ActiveWeapon activeWeapon;
     private int isAimingParam = Animator.StringToHash("IsAiming");
+    
+
+    public string weaponName;
+
+    public GameObject scopeOverlay;
+
+   
 
     private void Awake()
     {
@@ -42,14 +50,34 @@ public class CharacterAiming : MonoBehaviour
         var weapon = activeWeapon.GetActiveWeapon();
         if (weapon)
         {
-            if (activeWeapon.canFire)
+            if (activeWeapon.canFire && weapon.weaponName.Equals("Sniper"))
+            {
+                isAiming = Input.GetMouseButtonDown(1);
+                animator.SetBool(isAimingParam, isAiming);
+
+              if (isAiming)
+             {
+                    scopeOverlay.SetActive(true);                  
+             }
+
+              
+                                        
+               
+               
+                
+            }
+             
+
+
+            else if (activeWeapon.canFire && weapon.weaponName.Equals("rilfe")) 
             {
                 isAiming = Input.GetMouseButton(1);
                 animator.SetBool(isAimingParam, isAiming);
-                
-                
-                weapon.weaponRecoil.recoilModifier = isAiming ? aimRecoil : defaultRecoil;
+
+                scopeOverlay.SetActive(false);
+               // weapon.weaponRecoil.recoilModifier = isAiming ? aimRecoil : defaultRecoil;
             }
+            weapon.weaponRecoil.recoilModifier = isAiming ? aimRecoil : defaultRecoil;
         }
     }
 
@@ -62,5 +90,19 @@ public class CharacterAiming : MonoBehaviour
 
         float yawCamera = mainCamera.transform.rotation.eulerAngles.y;
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, yawCamera, 0), turnSpeed * Time.deltaTime);
+    }
+
+    public void OnUnscoped()
+    {
+        scopeOverlay.SetActive(false);
+       // weaponCamera.SetActive(true);
+    }
+
+    public IEnumerator OnScoped()
+    {
+        yield return new WaitForSeconds(0.15f);
+
+        scopeOverlay.SetActive(true);
+       // weaponCamera.SetActive(false);
     }
 }
