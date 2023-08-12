@@ -7,16 +7,16 @@ public class AiLocomotion : MonoBehaviour
 {
     private NavMeshAgent navMeshAgent;
     private Animator animator;
+
     void Start()
     {
-        navMeshAgent= GetComponent<NavMeshAgent>(); 
+        navMeshAgent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if( navMeshAgent.hasPath) 
+        if (navMeshAgent.hasPath)
         {
             animator.SetFloat("Speed", navMeshAgent.velocity.magnitude);
         }

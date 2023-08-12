@@ -8,7 +8,7 @@ public class GlobalConfig : ScriptableObject
     [Header("AI")]
     public float maxTime = 0.5f;
     public float maxDistance = 1f;
-    public float aiMaxHealth = 100f;
+    public float aiMaxHealth = 1000f;
     public float blinkDuration = 0.1f;
     public float dieForce = 5f;
     public float maxSight = 5f;

@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-public class DebugAi : MonoBehaviour
+
+public class DebugAI : MonoBehaviour
 {
     public bool isShowVelocity;
     public bool isShowDesiredVelocity;

@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class AiHealth : Health
 {
@@ -9,8 +8,7 @@ public class AiHealth : Health
     private UIHealthBar healthBar;
     private SkinnedMeshRenderer skinnedMeshRenderer;
     private Ragdoll ragdoll;
-    private Animator animator;
-    private NavMeshAgent navMeshAgent;
+
     private float timeDestroyAI;
 
     private AiAgent aiAgent;
@@ -28,8 +26,6 @@ public class AiHealth : Health
         ragdoll = GetComponent<Ragdoll>();
         healthBar = GetComponentInChildren<UIHealthBar>();
         skinnedMeshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
-        animator = GetComponent<Animator>();
-        navMeshAgent = GetComponent<NavMeshAgent>();
     }
 
     protected override void OnDamage(Vector3 direction, Rigidbody rigidbody)
@@ -38,8 +34,6 @@ public class AiHealth : Health
         {
             healthBar.SetHealthBarPercentage(currentHealth / maxHealth);
         }
-        animator.Play("Hit", 2, 0f);
-        navMeshAgent.enabled = false;
         StartCoroutine(EnemyFlash());
     }
 
@@ -62,10 +56,5 @@ public class AiHealth : Health
     public void DestroyWhenDeath()
     {
         Destroy(this.gameObject, timeDestroyAI);
-    }
-
-    public void OnEndHit()
-    {
-        navMeshAgent.enabled = true;
     }
 }

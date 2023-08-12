@@ -24,7 +24,7 @@ public class CharacterLocomotion : MonoBehaviour
     private float jumpDamp;
     private float groundSpeed;
     private float pushPower;
-    private bool isJumping = false;
+    private bool isJumping;
     private int isSprintingParam = Animator.StringToHash("IsSprinting");
 
     void Start()
@@ -48,7 +48,6 @@ public class CharacterLocomotion : MonoBehaviour
 
     void Update()
     {
-        
         userInput.x = Input.GetAxis("Horizontal");
         userInput.y = Input.GetAxis("Vertical");
 
@@ -90,13 +89,13 @@ public class CharacterLocomotion : MonoBehaviour
         bool isSprinting = IsSprinting();
         animator.SetBool(isSprintingParam, isSprinting);
         rigController.SetBool(isSprintingParam, isSprinting);
-        //if (userInput.x != 0)
-        //{
-        //    if (postProcessVolume.profile.TryGet(out ChromaticAberration chromaticAberration))
-        //    {
-        //        chromaticAberration.active = isSprinting;
-        //    }
-        //}
+        if (userInput.x != 0)
+        {
+            if (postProcessVolume.profile.TryGet(out ChromaticAberration chromaticAberration))
+            {
+                chromaticAberration.active = isSprinting;
+            }
+        }
     }
 
     private void UpdateOnGround()
