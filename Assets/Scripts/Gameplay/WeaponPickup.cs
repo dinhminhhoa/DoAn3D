@@ -16,5 +16,16 @@ public class WeaponPickup : MonoBehaviour
             activeWeapon.Equip(newWeapon);
             Destroy(gameObject);
         }
+
+        AiWeapon aiWeapon = other.gameObject.GetComponent<AiWeapon>();
+        if (aiWeapon)
+        {
+            RaycastWeapon newWeapon = Instantiate(weaponPrefab);
+            newWeapon.equipWeaponBy = EquipWeaponBy.AI;
+            aiWeapon.EquipWeapon(newWeapon);
+            SphereCollider sphereCollider = aiWeapon.gameObject.GetComponent<SphereCollider>();
+            Destroy(sphereCollider);
+            Destroy(gameObject);
+        }
     }
 }

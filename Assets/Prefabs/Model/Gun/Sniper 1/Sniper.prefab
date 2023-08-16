@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5610768250308946738}
   - component: {fileID: -3184909973937644261}
   - component: {fileID: -9357400221812792}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Barrett M82 Scope
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: -9006027944803810866}
   - component: {fileID: 4775424326707862577}
   - component: {fileID: 364009447126746880}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Magainze Part.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 607420069624312816}
   - component: {fileID: 934300313368115615}
   - component: {fileID: 3798612447971671408}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Streaks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4808,7 +4808,7 @@ GameObject:
   - component: {fileID: 4389712234595181906}
   - component: {fileID: 7429585197016824952}
   - component: {fileID: 7466030469308433267}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Mist
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9636,7 +9636,7 @@ GameObject:
   - component: {fileID: 8128058448417747652}
   - component: {fileID: 8304189636275777177}
   - component: {fileID: 2070347262734107612}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: FlashHeadon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14518,7 +14518,7 @@ GameObject:
   - component: {fileID: 8858916084855611763}
   - component: {fileID: 5806910634284379885}
   - component: {fileID: 7925988776562179001}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Decal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19407,7 +19407,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3655702715515250262}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: FX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19441,7 +19441,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5627012254751958337}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: RayCastOrigin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19476,7 +19476,7 @@ GameObject:
   - component: {fileID: -937281530327720138}
   - component: {fileID: -1502484257711957061}
   - component: {fileID: 4189114897469348632}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sniper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19531,10 +19531,10 @@ MonoBehaviour:
   raycastDestination: {fileID: 0}
   weaponRecoil: {fileID: 0}
   magazine: {fileID: 4305514110154634274}
-  animator: {fileID: 0}
+  animator: {fileID: 9100000, guid: 4562feec85404e24fb905ff6c0a5dc90, type: 2}
   layerMask:
     serializedVersion: 2
-    m_Bits: 513
+    m_Bits: 4097
   ammoCount: 101010
   totalAmmo: 101010
   magazineSize: 10101
@@ -19649,7 +19649,7 @@ GameObject:
   - component: {fileID: -7828245705932099867}
   - component: {fileID: 3876811038561504489}
   - component: {fileID: 6866847921976483936}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: M82 Magazine.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19733,7 +19733,7 @@ GameObject:
   - component: {fileID: 2192313595810725739}
   - component: {fileID: 8076514810581154583}
   - component: {fileID: 2883887697265375000}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: MuzzleFlash01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24616,7 +24616,7 @@ GameObject:
   - component: {fileID: 7338192659713837216}
   - component: {fileID: -5745520397862502771}
   - component: {fileID: 4592212963738880230}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Barrett M82
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24701,7 +24701,7 @@ GameObject:
   - component: {fileID: 5376318928926941063}
   - component: {fileID: 3944886821418216713}
   - component: {fileID: 7772685195257385179}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: HitEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29538,7 +29538,7 @@ GameObject:
   - component: {fileID: -7138969744611286655}
   - component: {fileID: 2472119642210388795}
   - component: {fileID: -748694096392712872}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Scope Holder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
