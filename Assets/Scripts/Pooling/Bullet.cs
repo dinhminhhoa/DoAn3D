@@ -34,9 +34,6 @@ public class Bullet : MonoBehaviour
         initialPosition = position;
         initialVelocity = velocity;
         tracer.emitting = true;
-
-        
-
         tracer.AddPosition(position);
 
     }

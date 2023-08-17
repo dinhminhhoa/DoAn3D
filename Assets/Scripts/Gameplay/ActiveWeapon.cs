@@ -13,7 +13,7 @@ public class ActiveWeapon : MonoBehaviour
     public bool isChangingWeapon;
     public bool canFire;
 
-    private RaycastWeapon[] equippedWeapons = new RaycastWeapon[3];
+    private RaycastWeapon[] equippedWeapons = new RaycastWeapon[2];
     private int activeWeaponIdx;
     private bool isHolstered = false;
 

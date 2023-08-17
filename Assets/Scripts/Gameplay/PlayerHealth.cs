@@ -50,6 +50,6 @@ public class PlayerHealth : Health
         ragdoll.ApplyForce(direction, rigidbody);
         activeWeapon.DropWeapon();
         aiming.enabled = false;
-        CameraManager.Instance.EnableKillCam();
+     //   CameraManager.Instance.EnableKillCam();
     }
 }

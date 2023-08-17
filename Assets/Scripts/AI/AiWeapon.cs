@@ -44,8 +44,11 @@ public class AiWeapon : MonoBehaviour
 
     public void EquipWeapon(RaycastWeapon weapon)
     {
-        currentWeapon = weapon;
-        socketController.Attach(weapon.transform, SocketID.RightLeg);
+        
+            currentWeapon = weapon;
+            socketController.Attach(currentWeapon.transform, SocketID.RightLeg);
+        
+        
     }
 
     public void ActivateWeapon()
@@ -95,9 +98,9 @@ public class AiWeapon : MonoBehaviour
     {
         if (currentWeapon)
         {
-            //currentWeapon.transform.SetParent(null);
-            //currentWeapon.gameObject.GetComponent<BoxCollider>().enabled = true;
-            //currentWeapon.gameObject.AddComponent<Rigidbody>();
+            currentWeapon.transform.SetParent(null);
+            currentWeapon.gameObject.GetComponent<BoxCollider>().enabled = true;
+            currentWeapon.gameObject.AddComponent<Rigidbody>();
             currentWeapon = null;
         }
     }
@@ -116,3 +119,4 @@ public class AiWeapon : MonoBehaviour
         currentTarget = target;
     }
 }
+
