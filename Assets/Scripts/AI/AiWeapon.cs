@@ -34,6 +34,7 @@ public class AiWeapon : MonoBehaviour
     {
         if (enabled)
         {
+
             currentWeapon.StartFiring();
         }
         else
@@ -43,12 +44,9 @@ public class AiWeapon : MonoBehaviour
     }
 
     public void EquipWeapon(RaycastWeapon weapon)
-    {
-        
+    {        
             currentWeapon = weapon;
-            socketController.Attach(currentWeapon.transform, SocketID.RightLeg);
-        
-        
+            socketController.Attach(currentWeapon.transform, SocketID.Spine);          
     }
 
     public void ActivateWeapon()
@@ -59,6 +57,7 @@ public class AiWeapon : MonoBehaviour
     private IEnumerator Equip()
     {
         animator.runtimeAnimatorController = currentWeapon.animator;
+       
         animator.SetBool("Equip", true);
         yield return new WaitForSeconds(0.5f);
         while (animator.GetCurrentAnimatorStateInfo(1).normalizedTime < 1.0f)
@@ -67,6 +66,7 @@ public class AiWeapon : MonoBehaviour
         }
         weaponIK.SetAimTransform(currentWeapon.raycastOrigin);
         weaponActive = true;
+        Debug.Log(" vao` state Equip");
     }
 
     public void DeActivateWeapon()

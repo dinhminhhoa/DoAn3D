@@ -11,8 +11,10 @@ public class AiAttackPlayerState : AiState
 
     public void Enter(AiAgent agent)
     {
+        
         agent.weapons.ActivateWeapon();
         agent.weapons.SetTarget(agent.playerTransform);
+       
         agent.navMeshAgent.stoppingDistance = 5f;
         agent.weapons.SetFiring(true);
     }

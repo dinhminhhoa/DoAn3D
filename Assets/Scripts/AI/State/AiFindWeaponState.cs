@@ -21,6 +21,7 @@ public class AiFindWeaponState : AiState
         if (agent.weapons.HasWeapon())
         {
             agent.stateMachine.ChangeState(AiStateID.Attack);
+
         }
     }
 

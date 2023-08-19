@@ -34,7 +34,7 @@ public enum WeaponSlot
 
 public enum SocketID
 {
-    RightLeg,
+   Spine,
     RightHand
 }
 
