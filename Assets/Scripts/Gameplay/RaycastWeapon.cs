@@ -26,6 +26,7 @@ public class RaycastWeapon : MonoBehaviour
     public int magazineSize = 2;
     public float damage = 10f;
 
+    
     private Ray ray;
     private RaycastHit hitInfo;
     private float accumulatedTime;
@@ -38,7 +39,11 @@ public class RaycastWeapon : MonoBehaviour
 
     public void StartFiring()
     {
-        isFiring = true;
+       
+
+
+            isFiring = true;
+
         if (accumulatedTime > 0.0f)
         {
             accumulatedTime = 0.0f;
@@ -48,6 +53,7 @@ public class RaycastWeapon : MonoBehaviour
 
     public void StopFiring()
     {
+        
         isFiring = false;
     }
 

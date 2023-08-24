@@ -42,7 +42,7 @@ public class AiIdleState : AiState
 
         if (dotProduct >= 0)
         {
-            agent.stateMachine.ChangeState(AiStateID.ChasePlayer);
+            agent.stateMachine.ChangeState(AiStateID.Attack);
         }
     }
 }
