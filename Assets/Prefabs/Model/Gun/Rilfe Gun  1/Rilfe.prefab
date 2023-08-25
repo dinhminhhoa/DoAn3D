@@ -35111,7 +35111,7 @@ MonoBehaviour:
   weaponSlot: 0
   weaponName: rilfe
   isFiring: 0
-  fireRate: 5
+  fireRate: 1
   bulletSpeed: 100
   bulletDrop: 0
   muzzleFlash:
@@ -35157,9 +35157,9 @@ MonoBehaviour:
   - {x: 0.1, y: 1.4}
   - {x: 0.2, y: 1.6}
   - {x: 0.6, y: 1.8}
-  - {x: 0.8, y: 2}
-  - {x: 1, y: 2.2}
-  duration: 0.4
+  - {x: 0.8, y: 1.9}
+  - {x: 1, y: 2}
+  duration: 0.1
 --- !u!65 &-5432452542059270857
 BoxCollider:
   m_ObjectHideFlags: 0

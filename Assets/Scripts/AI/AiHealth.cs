@@ -9,7 +9,7 @@ public class AiHealth : Health
     private SkinnedMeshRenderer skinnedMeshRenderer;
     private Ragdoll ragdoll;
 
-    //private float timeDestroyAI;
+    private float timeDestroyAI;
 
     private AiAgent aiAgent;
 
@@ -20,7 +20,7 @@ public class AiHealth : Health
         {
             maxHealth = DataManager.Instance.GlobalConfig.aiMaxHealth;
             blinkDuration = DataManager.Instance.GlobalConfig.blinkDuration;
-            //timeDestroyAI = DataManager.Instance.GlobalConfig.timeDestroyAI;
+            timeDestroyAI = DataManager.Instance.GlobalConfig.timeDestroyAI;
         }
         currentHealth = maxHealth;
         ragdoll = GetComponent<Ragdoll>();
@@ -53,8 +53,8 @@ public class AiHealth : Health
         StopCoroutine(nameof(EnemyFlash));
     }
 
-    //public void DestroyWhenDeath()
-    //{
-    //    Destroy(this.gameObject, timeDestroyAI);
-    //}
+    public void DestroyWhenDeath()
+    {
+        Destroy(this.gameObject, timeDestroyAI);
+    }
 }

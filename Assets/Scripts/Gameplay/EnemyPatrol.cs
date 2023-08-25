@@ -24,17 +24,19 @@ public class EnemyPatrol : MonoBehaviour
         if (currentTarget < targetPoint.Length)
         {
             Debug.Log(currentTarget);
-            if (agent.navMeshAgent.remainingDistance <= agent.navMeshAgent.stoppingDistance + .5f)
+            if (agent.navMeshAgent.remainingDistance <= agent.navMeshAgent.stoppingDistance + 0.2f)
             {
                 currentTarget++;
-                if(currentTarget >= targetPoint.Length)
+                if (currentTarget >= targetPoint.Length)
                 {
                     currentTarget = 0;
                 }
             }
+
             agent.navMeshAgent.SetDestination(targetPoint[currentTarget].position);
         }
 
        
+
     }
 }

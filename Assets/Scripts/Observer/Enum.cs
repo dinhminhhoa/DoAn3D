@@ -19,7 +19,7 @@ public enum UIType
 
 public enum AiStateID
 {
-    Patrol,//
+    
     ChasePlayer,
     Death,
     Idle,
