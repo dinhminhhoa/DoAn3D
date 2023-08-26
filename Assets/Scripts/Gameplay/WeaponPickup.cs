@@ -13,7 +13,7 @@ public class WeaponPickup : MonoBehaviour
         {
             RaycastWeapon newWeapon = Instantiate(weaponPrefab);
             newWeapon.equipWeaponBy = EquipWeaponBy.Player;
-            activeWeapon.Equip(newWeapon);
+            activeWeapon.Equip(newWeapon);           
             Destroy(gameObject);
         }
 
