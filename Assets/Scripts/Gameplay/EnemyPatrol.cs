@@ -31,9 +31,10 @@ public class EnemyPatrol : MonoBehaviour
                 {
                     currentTarget = 0;
                 }
+                agent.navMeshAgent.SetDestination(targetPoint[currentTarget].position);
             }
 
-            agent.navMeshAgent.SetDestination(targetPoint[currentTarget].position);
+            
         }      
     }
 
