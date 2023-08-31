@@ -35130,7 +35130,7 @@ MonoBehaviour:
   ammoCount: 30
   totalAmmo: 30
   magazineSize: 2
-  damage: 5
+  damage: 1
 --- !u!114 &-7307067218807553029
 MonoBehaviour:
   m_ObjectHideFlags: 0
