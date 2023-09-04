@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Net;
 using UnityEngine;
 
 public class WeaponReload : MonoBehaviour
@@ -13,32 +12,33 @@ public class WeaponReload : MonoBehaviour
 
     private GameObject magazineHand;
     private float timeDestroyDroppedMagazine;
+
     void Start()
     {
         animationEvents.WeaponAnimEvent.AddListener(OnAnimationEvent);
-        if(DataManager.HasInstance)
+        if (DataManager.HasInstance)
         {
             timeDestroyDroppedMagazine = DataManager.Instance.GlobalConfig.timeDestroyDroppedMagazine;
         }
     }
 
- 
     void Update()
     {
         RaycastWeapon weapon = activeWeapon.GetActiveWeapon();
-        if(weapon)
+        if (weapon)
         {
-            if(Input.GetKeyDown(KeyCode.R) || weapon.ammoCount <= 0)
+            if (Input.GetKeyDown(KeyCode.R) || weapon.CanReload())
             {
                 isReloading = true;
                 rigController.SetTrigger("reload_weapon");
             }
         }
+
     }
 
     private void OnAnimationEvent(string eventName)
     {
-        switch ( eventName)
+        switch (eventName)
         {
             case "detach_magazine":
                 DetachMagazine();
@@ -82,14 +82,12 @@ public class WeaponReload : MonoBehaviour
         RaycastWeapon weapon = activeWeapon.GetActiveWeapon();
         weapon.magazine.SetActive(true);
         Destroy(magazineHand);
-        weapon.ammoCount = weapon.totalAmmo;
+        weapon.RefillAmmo();
         rigController.ResetTrigger("reload_weapon");
-
-        if(ListenerManager.HasInstance)
+        if (ListenerManager.HasInstance)
         {
-            ListenerManager.Instance.BroadCast(ListenType.UPDATE_AMMO, weapon.ammoCount);
-
+            ListenerManager.Instance.BroadCast(ListenType.UPDATE_AMMO, weapon);
         }
         isReloading = false;
-    }    
+    }
 }

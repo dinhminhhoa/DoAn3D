@@ -6,9 +6,66 @@ using TMPro;
 public class GamePanel : BaseScreen
 {
     [SerializeField] private TextMeshProUGUI ammoText;
+    [SerializeField] private TextMeshProUGUI magazineText;
+    [SerializeField] private TextMeshProUGUI timeText;
+    private float timeRemaining;
+    private bool timerIsRunning = false;
+
+    private void Awake()
+    {
+        SetTimeRemain(5);
+    }
 
     private void Start()
     {
+        Invoke("DelayLoad", 0.3f);
+    }
+    private void OnEnable()
+    {
+        SetTimeRemain(5);
+        timerIsRunning = true;
+      
+    }
+
+    void DisplayTime(float timeToDisplay)
+    {
+        timeToDisplay += 1;
+        float minutes = Mathf.FloorToInt(timeToDisplay / 60);
+        float seconds = Mathf.FloorToInt(timeToDisplay % 60);
+        timeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+    }
+
+    private void Update()
+    {
+        if (timerIsRunning)
+        {
+            if (timeRemaining > 0)
+            {
+                timeRemaining -= Time.deltaTime;
+                DisplayTime(timeRemaining);
+            }
+            else
+            {
+                Debug.Log("Time has run out!");
+                timeRemaining = 0;
+                timerIsRunning = false;
+                if (UIManager.HasInstance && GameManager.HasInstance && AudioManager.HasInstance)
+                {
+                   // AudioManager.Instance.PlaySE(AUDIO.SE_LOSE);
+                    GameManager.Instance.PauseGame();
+                    UIManager.Instance.ActiveLosePanel(true);
+                }
+            }
+        }
+    }
+    public void SetTimeRemain(float v)
+    {
+        timeRemaining = v;
+    }
+    public override void Init()
+    {
+        base.Init();
+
         if (ListenerManager.HasInstance)
         {
             ListenerManager.Instance.Register(ListenType.UPDATE_AMMO, OnUpdateAmmo);
@@ -25,9 +82,13 @@ public class GamePanel : BaseScreen
 
     private void OnUpdateAmmo(object value)
     {
-        if (value is int ammo)
+        if (value is RaycastWeapon weapon)
         {
-            ammoText.text = ammo.ToString();
+            if (weapon.equipWeaponBy == EquipWeaponBy.Player)
+            {
+                ammoText.text = weapon.ammoCount.ToString();
+                magazineText.text = weapon.magazineSize.ToString();
+            }
         }
     }
 }

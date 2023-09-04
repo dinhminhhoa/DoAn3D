@@ -34035,7 +34035,7 @@ MonoBehaviour:
   - {fileID: 7756254663744245490}
   - {fileID: 1514613352174747612}
   hitEffect: {fileID: 3486678450678040906}
-  tracerEffect: {fileID: 0}
+  tracerEffect: {fileID: -3539115561943571729, guid: 6d4ca055cf373774d8e022730cb1a2af, type: 3}
   raycastOrigin: {fileID: 6788232813230997116}
   raycastDestination: {fileID: 0}
   weaponRecoil: {fileID: 0}

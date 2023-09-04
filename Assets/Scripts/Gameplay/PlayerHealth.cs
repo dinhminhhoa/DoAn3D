@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : Health
 {
@@ -12,6 +13,43 @@ public class PlayerHealth : Health
     private Ragdoll ragdoll;
     private ActiveWeapon activeWeapon;
     private CharacterAiming aiming;
+
+    //public GameObject player;
+    //private Vector3 spawnPoint;
+
+
+    //private void Start()
+    //{
+    //    spawnPoint = gameObject.transform.position;
+    //}
+    private void Update()
+    {
+        if(currentHealth <= 0)
+        {
+            
+            SceneManager.LoadScene("1");
+
+            transform.position = new Vector3(4.931707f, 1.04f, 55.432f);
+
+
+            currentHealth = maxHealth;
+        }
+    }
+
+    //private void FixedUpdate()
+    //{
+    //    gameObject.transform.position = spawnPoint;
+    //}
+
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.gameObject.CompareTag("Checkpoint"))
+    //    {
+    //        spawnPoint = player.transform.position;
+    //        Destroy(gameObject);
+    //    }
+    //}
+
 
     protected override void OnStart()
     {

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     protected float maxHealth;
-    protected float currentHealth;
+    public float currentHealth;
 
     void Start()
     {
@@ -37,7 +37,7 @@ public class Health : MonoBehaviour
         var rigidBodies = GetComponentsInChildren<Rigidbody>();
         foreach (var rigidbody in rigidBodies)
         {
-          //  rigidbody.collisionDetectionMode = CollisionDetectionMode.Continuous;
+            rigidbody.collisionDetectionMode = CollisionDetectionMode.Continuous;
             HitBox hitBox = rigidbody.gameObject.AddComponent<HitBox>();
             hitBox.health = this;
             hitBox.rb = rigidbody;
