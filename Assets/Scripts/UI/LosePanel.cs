@@ -11,6 +11,7 @@ public class LosePanel : MonoBehaviour
         if (GameManager.HasInstance)
         {
             GameManager.Instance.RestarGame();
+            SceneManager.LoadScene("Loading");
         }
     }
 

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxTime: 0.5
   maxDistance: 1
-  aiMaxHealth: 100
+  aiMaxHealth: 50
   blinkDuration: 0.1
   dieForce: 5
   maxSight: 5

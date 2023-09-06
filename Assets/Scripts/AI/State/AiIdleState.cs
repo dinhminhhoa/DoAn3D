@@ -42,7 +42,7 @@ public class AiIdleState : AiState
 
         if (dotProduct >= 0)
         {
-            agent.stateMachine.ChangeState(AiStateID.Attack);
+            agent.stateMachine.ChangeState(AiStateID.FindWeapon);
         }
     }
 }

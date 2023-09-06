@@ -28,7 +28,7 @@ public class WeaponPickup : MonoBehaviour
             aiWeapon.EquipWeapon(newWeapon);
             SphereCollider sphereCollider = aiWeapon.gameObject.GetComponent<SphereCollider>();
             Destroy(sphereCollider);
-            Destroy(gameObject);
+            //Destroy(gameObject);
            
         }
     }

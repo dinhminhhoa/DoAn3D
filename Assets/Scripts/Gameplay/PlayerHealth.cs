@@ -14,8 +14,8 @@ public class PlayerHealth : Health
     private ActiveWeapon activeWeapon;
     private CharacterAiming aiming;
 
-    //public GameObject player;
-    //private Vector3 spawnPoint;
+    public GameObject checkPoint;
+    private Vector3 spawnPoint;
 
 
     //private void Start()
@@ -24,12 +24,14 @@ public class PlayerHealth : Health
     //}
     private void Update()
     {
+        spawnPoint = gameObject.transform.position;
+
         if(currentHealth <= 0)
         {
-            
+
             SceneManager.LoadScene("1");
 
-            transform.position = new Vector3(4.931707f, 1.04f, 55.432f);
+            transform.position = spawnPoint; //new Vector3(4.931707f, 1.04f, 55.432f);
 
 
             currentHealth = maxHealth;
@@ -41,14 +43,14 @@ public class PlayerHealth : Health
     //    gameObject.transform.position = spawnPoint;
     //}
 
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.gameObject.CompareTag("Checkpoint"))
-    //    {
-    //        spawnPoint = player.transform.position;
-    //        Destroy(gameObject);
-    //    }
-    //}
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Checkpoint"))
+        {
+            spawnPoint = checkPoint.transform.position;
+            Destroy(gameObject);
+        }
+    }
 
 
     protected override void OnStart()

@@ -28,7 +28,7 @@ public class AiAttackPlayerState : AiState
 
         if (agent.playerTransform.GetComponent<Health>().IsDead())
         {
-            agent.stateMachine.ChangeState(AiStateID.Idle);
+            agent.stateMachine.ChangeState(AiStateID.Death);
         }
 
         Vector3 playerDirection = agent.playerTransform.position - agent.transform.position;
@@ -41,7 +41,7 @@ public class AiAttackPlayerState : AiState
 
         if (dotProduct <= 0)
         {
-            agent.weapons.SetFiring(false);
+            agent.weapons.SetFiring(false);//
         }
         else
         {
