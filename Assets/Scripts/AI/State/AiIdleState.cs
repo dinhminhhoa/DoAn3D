@@ -27,6 +27,7 @@ public class AiIdleState : AiState
 
     public void Update(AiAgent agent)
     {
+        
         playerDirection = agent.playerTransform.position - agent.transform.position;
 
         if (playerDirection.magnitude > maxSightDistance)
@@ -34,6 +35,7 @@ public class AiIdleState : AiState
             return;
         }
 
+       
         Vector3 agentDirection = agent.transform.forward;
 
         playerDirection.Normalize();

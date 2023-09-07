@@ -35,7 +35,7 @@ public class GameManager : BaseManager<GameManager>
 
     public void RestarGame()
     { 
-        ChangeScene("Menu");
+        ChangeScene("Loading");
 
         if (UIManager.HasInstance)
         {
