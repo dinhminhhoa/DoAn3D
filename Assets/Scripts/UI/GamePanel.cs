@@ -23,7 +23,7 @@ public class GamePanel : BaseScreen
 
     private void Start()
     {
-        Invoke("DelayLoad", 0.3f);
+        Invoke("DelayLoad", 0f);
     }
     private void OnEnable()
     {
@@ -34,7 +34,7 @@ public class GamePanel : BaseScreen
 
     void DisplayTime(float timeToDisplay)
     {
-        timeToDisplay += 1;
+        //timeToDisplay += 1;
         float minutes = Mathf.FloorToInt(timeToDisplay / 60);
         float seconds = Mathf.FloorToInt(timeToDisplay % 60);
         timeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
