@@ -23,6 +23,8 @@ public class AudioManager : BaseManager<AudioManager>
 
     protected override void Awake()
     {
+        
+       
         base.Awake();
         //Load all SE & BGM files from resource folder
         bgmDic = new Dictionary<string, AudioClip>();
@@ -39,6 +41,8 @@ public class AudioManager : BaseManager<AudioManager>
         {
             seDic[se.name] = se;
         }
+
+        
     }
 
     private void Start()

@@ -149,6 +149,7 @@ public class ActiveWeapon : MonoBehaviour
 
     private IEnumerator SwitchWeapon(int holsterIndex, int activateIndex)
     {
+        
         rigController.SetInteger("weapon_index", activateIndex);
         yield return StartCoroutine(HolsterWeapon(holsterIndex));
         yield return StartCoroutine(ActivateWeapon(activateIndex));
@@ -158,6 +159,7 @@ public class ActiveWeapon : MonoBehaviour
 
     private IEnumerator HolsterWeapon(int index)
     {
+       
         isChangingWeapon = true;
         isHolstered = true;
         var weapon = GetWeapon(index);
@@ -175,6 +177,10 @@ public class ActiveWeapon : MonoBehaviour
 
     private IEnumerator ActivateWeapon(int index)
     {
+        if (AudioManager.HasInstance)
+        {
+            AudioManager.Instance.PlaySE(AUDIO.SE_ACTIVEWEAPON);
+        }
         isChangingWeapon = true;
         var weapon = GetWeapon(index);
         if (weapon)

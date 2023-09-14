@@ -13,6 +13,15 @@ public class AiWeapon : MonoBehaviour
     private bool weaponActive = false;
     public bool WeaponActive => weaponActive;
 
+
+    //[Header("Enemy Sound")]
+    //public AudioClip shooting;
+    //public AudioSource audioSource;
+
+    private void Awake()
+    {
+       // audioSource= GetComponent<AudioSource>();
+    }
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -34,8 +43,9 @@ public class AiWeapon : MonoBehaviour
     {
         if (enabled)
         {
-
+           
             currentWeapon.StartFiring();
+          
         }
         else
         {
@@ -51,6 +61,7 @@ public class AiWeapon : MonoBehaviour
 
     public void ActivateWeapon()
     {
+
         StartCoroutine(Equip());
     }
 

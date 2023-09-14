@@ -35111,7 +35111,7 @@ MonoBehaviour:
   weaponSlot: 0
   weaponName: rilfe
   isFiring: 0
-  fireRate: 5
+  fireRate: 4
   bulletSpeed: 100
   bulletDrop: 1
   muzzleFlash:

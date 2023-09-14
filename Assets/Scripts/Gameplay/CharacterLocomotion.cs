@@ -170,4 +170,20 @@ public class CharacterLocomotion : MonoBehaviour
         // Apply the push
         body.velocity = pushDir * pushPower;
     }
+
+    public void OnFootStep()
+    {
+        if (AudioManager.HasInstance)
+        {
+            AudioManager.Instance.PlaySE(AUDIO.SE_FOOTSTEP);
+        }
+    }
+
+    public void OnJump()
+    {
+        if (AudioManager.HasInstance)
+        {
+            AudioManager.Instance.PlaySE(AUDIO.SE_JUMP);
+        }
+    }
 }

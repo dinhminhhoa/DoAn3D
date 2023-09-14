@@ -7,7 +7,7 @@ public class Finish_Checkpoint : MonoBehaviour
 {
 
     private bool levelComplete = false;
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.CompareTag("Player") && !levelComplete)
         {
@@ -16,15 +16,17 @@ public class Finish_Checkpoint : MonoBehaviour
              //   AudioManager.Instance.PlaySE(AUDIO.SE_PLAYER_FINISH);
             }
             levelComplete = true;
-            Invoke("CompleteLevel", 2f);// 2 giay sau chuyen scene
+            Invoke("CompleteLevel", 0f);// 2 giay sau chuyen scene
         }
     }
     private void CompleteLevel()
     {
-        if (SceneManager.GetActiveScene().name.Equals("LevelBosss"))
+        if (SceneManager.GetActiveScene().name.Equals("1"))
         {
             if (UIManager.HasInstance)
             {
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
                 Time.timeScale = 0f;
                 UIManager.Instance.ActiveVictoryPanel(true);
                 return;

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class RaycastWeapon : MonoBehaviour
@@ -38,10 +39,7 @@ public class RaycastWeapon : MonoBehaviour
     }
 
     public void StartFiring()
-    {
-       
-
-
+    {       
             isFiring = true;
 
         if (accumulatedTime > 0.0f)
@@ -184,7 +182,11 @@ public class RaycastWeapon : MonoBehaviour
             {
                 hitBox.OnHit(this, ray.direction);
             }
+           
+           
+
         }
+       
         bullet.transform.position = end;
     }
 }
